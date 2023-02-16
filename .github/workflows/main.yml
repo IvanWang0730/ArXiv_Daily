@@ -3,9 +3,6 @@ on:
   schedule:
     - cron:  '*/10 * * * *'
   workflow_dispatch:
-
-env:
-  secret: ${{ secrets.SERECT }}$
   
 jobs:
   build:
@@ -26,5 +23,7 @@ jobs:
           pip install requests
           
       - name: Run arxiv report 
+        env:
+          SCKEY: ${{ secrets.SERECT }}$
         run: |
           python arxiv_daily.py "${secret}"
