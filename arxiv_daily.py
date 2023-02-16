@@ -106,7 +106,8 @@ def get_daily_papers(topic, query="nlp", max_results=2, date=datetime.date.today
 
 def get_timestamp_sign():
     timestamp = str(round(time.time() * 1000))
-    secret = "SECa27c4ee78efe89f7e2c39324a4d96d444813a1e457aad2f0f3c52e41107855f4" # SEC开头的
+    import sys
+    secret = sys.argv[1] # SEC开头的
     secret_enc = secret.encode('utf-8')
     string_to_sign = '{}\n{}'.format(timestamp, secret)
     string_to_sign_enc = string_to_sign.encode('utf-8')
