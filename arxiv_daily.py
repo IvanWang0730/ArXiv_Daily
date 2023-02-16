@@ -107,8 +107,8 @@ def get_daily_papers(topic, query="nlp", max_results=2, date=datetime.date.today
 def get_timestamp_sign():
     timestamp = str(round(time.time() * 1000))
     import os
-    SCKEY = os.environ["SCKEY"]
-    print(SCKEY=="SECa27c4ee78efe89f7e2c39324a4d96d444813a1e457aad2f0f3c52e41107855f4")
+    SCKEY = "SECa27c4ee78efe89f7e2c39324a4d96d444813a1e457aad2f0f3c52e41107855f4"
+    print(os.environ["SCKEY"]=="SECa27c4ee78efe89f7e2c39324a4d96d444813a1e457aad2f0f3c52e41107855f4")
     secret_enc = secret.encode('utf-8')
     string_to_sign = '{}\n{}'.format(timestamp, secret)
     string_to_sign_enc = string_to_sign.encode('utf-8')
