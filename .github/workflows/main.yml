@@ -24,4 +24,4 @@ jobs:
           
       - name: Run arxiv report 
         run: |
-          python arxiv_daily.py
+          python arxiv_daily.py ${secrets.serect}
