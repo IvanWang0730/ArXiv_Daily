@@ -26,4 +26,4 @@ jobs:
         env:
           SCKEY: ${{ secrets.SERECT }}$
         run: |
-          python arxiv_daily.py "${secret}"
+          python arxiv_daily.py
