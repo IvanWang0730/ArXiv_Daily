@@ -3,6 +3,9 @@ on:
   schedule:
     - cron:  '*/10 * * * *'
   workflow_dispatch:
+
+env:
+  secret: ${{ secrets.SERECT }}$
   
 jobs:
   build:
@@ -24,4 +27,4 @@ jobs:
           
       - name: Run arxiv report 
         run: |
-          python arxiv_daily.py ${{ secrets.SERECT }}$
+          python arxiv_daily.py "${secret}"
