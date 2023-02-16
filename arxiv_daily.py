@@ -108,7 +108,7 @@ def get_timestamp_sign():
     timestamp = str(round(time.time() * 1000))
     import sys
     secret = sys.argv[-1] # SEC开头的
-    print("secret:", secret)
+    print("secret:", sys)
     secret_enc = secret.encode('utf-8')
     string_to_sign = '{}\n{}'.format(timestamp, secret)
     string_to_sign_enc = string_to_sign.encode('utf-8')
