@@ -24,7 +24,7 @@ jobs:
           
       - name: Run arxiv report 
         env:
-          SCKEY: ${{ secrets.SCKEY }}$
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}$
+          SCKEY: ${{ secrets.SCKEY }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
           python arxiv_daily.py
