@@ -73,6 +73,11 @@ def get_daily_papers(topic, query="nlp", max_results=2, date=datetime.date.today
         print("Time = ", update_time,
               " title = ", paper_title,
               " author = ", paper_first_author)
+        
+        if paper_comment:
+            output.append("[{}][{}]({}) \n\n {} \n\n Comments:{} \n\n".format(len(output)+1, paper_title, paper_url, paper_authors, paper_comment))
+        else:
+            output.append("[{}][{}]({}) \n\n {} \n\n".format(len(output)+1, paper_title, paper_url, paper_authors))
 
         # eg: 2108.09112v1 -> 2108.09112
         ver_pos = paper_id.find('v')
@@ -85,10 +90,6 @@ def get_daily_papers(topic, query="nlp", max_results=2, date=datetime.date.today
         try:
             r = requests.get(code_url).json()
             # source code link
-            if paper_commment:
-                output.append("[{}][{}]({}) \n\n {} \n\n Comments:{} \n\n".format(len(output)+1, paper_title, paper_url, paper_authors, paper_comment))
-            else:
-                output.append("[{}][{}]({}) \n\n {} \n\n".format(len(output)+1, paper_title, paper_url, paper_authors))
             if "official" in r and r["official"]:
                 repo_url = r["official"]["url"]
                 content[
