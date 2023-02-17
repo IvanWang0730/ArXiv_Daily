@@ -56,6 +56,7 @@ def get_daily_papers(topic, query="nlp", max_results=2, date=datetime.date.today
         paper_id = result.get_short_id()
         paper_title = result.title
         paper_url = result.entry_id
+        paper_comment = result.comment
 
         code_url = base_url + paper_id
         paper_abstract = result.summary.replace("\n", " ")
@@ -84,7 +85,7 @@ def get_daily_papers(topic, query="nlp", max_results=2, date=datetime.date.today
         try:
             r = requests.get(code_url).json()
             # source code link
-            output.append("[{}][{}]({}) \n\n {} \n\n".format(len(output)+1, paper_title, paper_url, paper_authors))
+            output.append("[{}][{}]({}) \n\n {} \n\n Comments:{} \n\n".format(len(output)+1, paper_title, paper_url, paper_authors, paper_comment))
             if "official" in r and r["official"]:
                 repo_url = r["official"]["url"]
                 content[
@@ -147,7 +148,7 @@ if __name__ == "__main__":
         keywords["Recommendation System"] = "\"Recommendation System\"OR\"Semantic Matching\"OR\"Chatbots\"OR\"Recommendation\""
         # keywords["Knowledge Graph"] = "\"Knowledge Graph\"OR\"Knowledge Graphs\""
         # keywords["GNN"] = "GNN" + "OR" + "\"Graph Neural Network\""
-        keywords["ChatGPT"] = "\"ChatGPT\"OR\"LLM\""
+        keywords["ChatGPT"] = "\"ChatGPT\"OR\"Large Language Model\""
         keywords["Collaborative Filtering"] = "\"Collaborative Filtering\""
 
         for topic, keyword in keywords.items():
