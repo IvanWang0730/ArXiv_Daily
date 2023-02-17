@@ -107,8 +107,7 @@ def get_daily_papers(topic, query="nlp", max_results=2, date=datetime.date.today
 
 def get_timestamp_sign():
     timestamp = str(round(time.time() * 1000))
-    secret = "SECe9b6eda1f5baf99acccf9b4bda51f399335122cd3632784025a255b7c5124204"
-    print(os.environ["SCKEY"]=="SECe9b6eda1f5baf99acccf9b4bda51f399335122cd3632784025a255b7c5124204")
+    secret = os.environ["SCKEY"]
     secret_enc = secret.encode('utf-8')
     string_to_sign = '{}\n{}'.format(timestamp, secret)
     string_to_sign_enc = string_to_sign.encode('utf-8')
@@ -166,10 +165,7 @@ if __name__ == "__main__":
     
     final = "--- \n\n".join(final)
     print(final)
-    url = "https://oapi.dingtalk.com/robot/send?access_token=d765e0254fe69cff07489ee6fbffe6178caf934428e8733e72bbb8771f66bdae"
-    print(os.environ["ACCESS_TOKEN"]=="d765e0254fe69cff07489ee6fbffe6178caf934428e8733e72bbb8771f66bdae")
-    print(os.environ["ACCESS_TOKEN"]==os.environ["ACCESS_TOKEN"])
-    print(os.environ["ACCESS_TOKEN"])
+    url = "https://oapi.dingtalk.com/robot/send?access_token="+os.environ["ACCESS_TOKEN"]
     url = get_signed_url(url)
     header = {
         "Content-Type": "application/json",
