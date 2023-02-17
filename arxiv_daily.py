@@ -145,10 +145,11 @@ if __name__ == "__main__":
         # keywords["Sentiment Analysis"] = "\"Sentiment Analysis\""
         # keywords["Question Answering"] = "\"QA\"OR\"Question Answering\""
         # keywords["Information Extraction"] = "\"Information Extraction\"OR\"Automatic Summary\"OR\"Title Generation\"OR\"Event Extraction\""
-        keywords["Recommendation System"] = "\"Recommendation System\"OR\"Semantic Matching\"OR\"Chatbots\""
+        keywords["Recommendation System"] = "\"Recommendation System\"OR\"Semantic Matching\"OR\"Chatbots\"OR\"Recommendation\""
         # keywords["Knowledge Graph"] = "\"Knowledge Graph\"OR\"Knowledge Graphs\""
         # keywords["GNN"] = "GNN" + "OR" + "\"Graph Neural Network\""
-        keywords["ChatGPT"] = "\"ChatGPT\""
+        keywords["ChatGPT"] = "\"ChatGPT\"OR\"LLM\""
+        keywords["Collaborative Filtering"] = "\"Collaborative Filtering\""
 
         for topic, keyword in keywords.items():
             # topic = keyword.replace("\"","")
