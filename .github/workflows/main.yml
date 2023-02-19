@@ -1,7 +1,7 @@
 name: Run Arxiv Papers Daily
 on: 
   schedule:
-    - cron:  '7 2 * * *'
+    - cron:  '0 2 * * 1-5'
   workflow_dispatch:
   
 jobs:
